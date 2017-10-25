@@ -1,0 +1,238 @@
+\documentclass[a4paper]{article}
+    \usepackage{fullpage}
+    \usepackage{amsmath}
+    \usepackage{amssymb}
+    \usepackage{textcomp}
+    \usepackage[utf8]{inputenc}
+    \textheight=10in
+    \pagestyle{empty}
+    \raggedright
+
+    %\renewcommand{\encodingdefault}{cg}
+%\renewcommand{\rmdefault}{lgrcmr}
+
+\def\bull{\vrule height 0.8ex width .7ex depth -.1ex }
+
+% DEFINITIONS FOR RESUME %%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\area} [2] {
+    \vspace*{-9pt}
+    \begin{verse}
+        \textbf{#1}   #2
+    \end{verse}
+}
+
+\newcommand{\lineunder} {
+    \vspace*{-8pt} \\
+    \hspace*{-18pt} \hrulefill \\
+}
+
+\newcommand{\header} [1] {
+    {\hspace*{-18pt}\vspace*{6pt} \textsc{#1}}
+    \vspace*{-6pt} \lineunder
+}
+
+\newcommand{\employer} [3] {
+    { \textbf{#1} (#2)\\ \underline{\textbf{\emph{#3}}}\\  }
+}
+
+\newcommand{\contact} [3] {
+    \vspace*{-10pt}
+    \begin{center}
+        {\Huge \scshape {#1}}\\
+        #2 \\ #3
+    \end{center}
+    \vspace*{-8pt}
+}
+
+\newenvironment{achievements}{
+    \begin{list}
+        {$\bullet$}{\topsep 0pt \itemsep -2pt}}{\vspace*{4pt}
+    \end{list}
+}
+
+\newcommand{\schoolwithcourses} [4] {
+    \textbf{#1} #2 $\bullet$ #3\\
+    #4 \\
+    \vspace*{5pt}
+}
+
+\newcommand{\school} [4] {
+    \textbf{#1} #2 $\bullet$ #3\\
+    #4 \\
+}
+    % END RESUME DEFINITIONS %%%%%%%%%%%%%%%%%%%%%%%
+
+    \begin{document}
+
+\vspace*{-40pt}
+
+%==== Profile ====%
+\vspace*{-10pt}
+\begin{center}
+    {\Huge \scshape {Paul Chobert}}\\
+    Software Engineer\\
+	Montreal, QC, Canada $\cdot$ paul@chobert.fr $\cdot$ +33 6 01 92 68 87 $\cdot$ github://barodeur $\cdot$ paulchobert.com\\
+\end{center}
+
+\vspace*{2mm}
+
+%==== Education ====%
+\header{Education}
+\textbf{ENSIIE}\hfill Strasbourg, France\\
+MSc Computer Science \hfill Grad: 2013\\
+\vspace{2mm}
+\textbf{ENSPS}\hfill Strasbourg, France\\
+BSc Physics \hfill Grad: 2011\\
+\vspace{2mm}
+\textbf{CPGE}\hfill Rouen, France\\
+2 years Mathematics \& Physics training to prepare for French “Grandes Écoles”\hfill Grad: 2010\\
+\vspace{2mm}
+
+\vspace*{2mm}
+
+%==== Experience ====%
+\header{Experience}
+\vspace{1mm}
+
+\textbf{Self Employed} \hfill Worldwide\\
+\textit{Software Engineer} \hfill 2011 | Present\\
+\vspace{-1mm}
+\begin{itemize} \itemsep 1pt
+    \item I help my clients to turn their ideas into web or mobile applications, see projects below
+    \item I sometimes assist existing development teams
+    \item My clients are mostly startups, funded or not, but I have also worked for Unilever,
+        the french national rails company (SNCF), and Luxottica
+    \item I use many technologies to fill my clients' needs, from Ruby on Rails,
+        custom node stacks, to Golang, etc.
+\end{itemize}
+
+\textbf{Enternships | Startup} \hfill London, UK\\
+\textit{Software Engineer - Lead developer} \hfill 2012 | 2013\\
+\vspace{-1mm}
+\begin{itemize} \itemsep 1pt
+    \item I replaced the leaving CTO \& founder
+    \item I maintained a few Rails projects that were functionally very close to each other,
+        I refactored the main one and then the others to share a same Rails Engine
+    \item I helped recruit a juinor developer and then reviewed his code
+\end{itemize}
+
+\textbf{Novelys | Rails Consultancy Business} \hfill Strasbourg, France\\
+\textit{Software Engineer Intern} \hfill 2012 | 2013\\
+\vspace{-1mm}
+\begin{itemize} \itemsep 1pt
+    \item I helped the team develop and maintain clients' projects, mostly in Rails
+    \item After my internship, the CEO proposed that I continue working with them as a freelancer, 
+        this is how I started freelancing
+\end{itemize}
+
+\textbf{Extessy | Volkswagen Enginneering Company} \hfill VW Town | Wolfsburg, Germany\\
+\textit{Software Engineer Intern} \hfill Summer 2008\\
+\vspace{-1mm}
+\begin{itemize} \itemsep 1pt
+    \item This was my first professional experience as a software developer, I was 18 years old.
+        Before that I was a hobbyist developer since the age of 12
+    \item I developed a flexible parsing tool to convert engineering requirement
+        documents from MS Word to a more standardized Requirements Interchange Format.
+        This was a very challenging task since the documents were not all using
+        the same exact Word template.
+    \item The project was build with Java, SAX Parser, SWT interface
+    \item I had the chance to study parsing techniques in the Dragon Book
+\end{itemize}
+
+\header{Skills}
+\begin{tabular}{ l l }
+	Programming Languages: & Ruby, Javascript, Golang, Exlir, Scala, Java, Bash   \\
+	Databases:      & MySQL, PostgresQL, Elasticsearch, MongoDB, DynamoDB  \\
+	Web framework:        & Ruby on Rails                                        \\
+    Infrastructure:        & Many AWS Services, Docker, Kubernetes, Terraform, Chef                    \\
+\end{tabular}
+
+% \vspace*{2mm}
+
+\pagebreak
+
+\header{Projects}
+{\textbf{React Native NFC iOS} \sl 2017 | SIDE PROJECT | react} \hfill github://barodeur/react-native-nfc-ios\\
+An open source library to use Apple CoreNFC with React Native.\\
+\vspace*{2mm}
+
+% {\textbf{Cross Cloud Kubernetes Cluster} \sl 2017 | SIDE PROJECT | Kubernetes, Terraform, CoreOS} \hfill DEMO\\
+% I setup an immutable infrastructure to host the CI for my clients.
+% It's a few bash scripts to add, remove and roll update servers to the cluster
+% The Kubernetes stack is on top of a tinc VPN cluster that makes it a secure cross cloud setup.
+% Top of that is a simple Gitlab with a few CI workers 
+% \\
+% \vspace*{2mm}
+
+{\textbf{MesVaccins Pro Mobile} \sl 2017 | CLIENT PROJECT | react native} \hfill Currently in Beta\\
+MesVaccins Pro Mobile is the largest React Native project I've worked on.
+It's an Android and iOS App that lets medical professionals keep track of the vaccination records of their patients.
+MesVaccins is probably the most advanced expert system for vaccination rules in the industry.\\
+\vspace*{2mm}
+
+{\textbf{Vote\&Vous App} \sl 2016 | CLIENT PROJECT | node.js, react, serverless, dynamodb} \hfill app.vote-et-vous.fr\\
+I designed and developed a tool to help electors choose the closest candidate to their ideas.
+I used a serverless infrastructure to handle traffic peaks coming from our embeded widget on media partners.
+\vspace*{2mm}
+
+{\textbf{Ice Rink Ticket System} \sl 2016 | CLIENT PROJECT | node.js, postgresql} \hfill Private\\
+That Group LTD is operating a few paid ice rinks in the UK during the christmas season.
+I developed a full online ticketing solution and an on-site boxoffice connected to a receipt printer and cash drawer.
+\vspace*{2mm}
+
+% {\textbf{Sentinel Factory} \sl 2015 | CLIENT PROJECT | Ruby on Rails, React, Mongodb} \hfill Private\\
+% \vspace*{2mm}
+
+{\textbf{Anoloc} \sl 2015 | CLIENT PROJECT | nodejs, angular} \hfill www.anoloc.fr\\
+I helped maintain and add features to their vehicle tracking platform.
+The main challenge was to identify scalability issues and fix them.
+Most of those were solved by distributing tasks to a worker pool.\\
+\vspace*{2mm}
+
+{\textbf{Teltonica support for Anoloc} \sl 2015 | CLIENT PROJECT | IoT, golang} \hfill www.anoloc.fr\\
+Anoloc was about to use a new tracking hardware on vehicles.
+I implemented the server to receive UDP frames for the new Teltonika protocol.
+\vspace*{2mm}
+
+{\textbf{Makesense, Future of Waste, Ecowork} \sl 2014 | CLIENT PROJECT | rails} \hfill\\
+I maintained a Ruby on Rails platform for the Makesense project and helped terminate a project that was functionally similar.
+Later, for a thrid project I factorized the many duplications of those three platforms into a Rails Engine in order
+to accelerate the development of new white labels.
+\vspace*{2mm}
+
+{\textbf{Ray Ban Sales traning for Luxottica} \sl 2013 | CLIENT PROJECT | javascript, moodle} \hfill Private\\
+I developed a Moodle class to train Ray Ban sellers with the marketing materials from Luxottica.
+The module was a javascript interface where the learner would watch videos and take tests.
+Test results were sent to Moodle to generate tracking and statistics data.\\
+\vspace*{2mm}
+
+{\textbf{SNCF Open Data} \sl 2012 | CLIENT PROJECT | rails} \hfill data.sncf.com\\
+I was chosen to develop the Open Data platform of the French national rails company SNCF.
+The app was online from 2012 to 2017 but was later replaced with a SaaS product.
+My work is archived on archive.org\\
+\vspace*{2mm}
+
+{\textbf{Unilever Sustainable Living Lab} \sl 2012 | CLIENT PROJECT | rails, emberjs} \hfill Private\\
+I helped a team at Tquila London (now Accenture) to customise a Discourse forum for Unilever needs.
+This was challenging as Ember \& Discourse were not stable at the time. \\
+I was also in charge of maintaining a second hosting solution in case we had any problems with Heroku EU zone (also beta).
+My solution was a Chef managed cluster of Linodes.\\
+\vspace*{2mm}
+
+{\textbf{Voxe.org} \sl 2011 | CLIENT PROJECT | rails} \hfill www.voxe.org\\
+I worked with Pierre Valade to develop a tool to compare political programs for the French Presidential election of 2012.
+The app was a massive success and brought me visibility to later continue my freelance career.\\
+\vspace*{2mm}
+
+{\textbf{Wisemetrics} \sl 2011 | CLIENT PROJECT | rails, mongodb} \hfill www.wiselytics.com\\
+I developed an advanced Facebook analytics platform to help content managers reach their audiences.
+This was when Facebook didn't have a GUI to see this data, but most of them were available through the API (FQL).
+The product was later sold and became Wiselytics.\\
+\vspace*{2mm}
+
+\vspace*{2mm}
+        
+
+\ 
+\end{document}
