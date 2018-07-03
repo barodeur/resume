@@ -8,6 +8,8 @@
     \pagestyle{empty}
     \raggedright
 
+\setlength{\parskip}{1mm}
+
     %\renewcommand{\encodingdefault}{cg}
 %\renewcommand{\rmdefault}{lgrcmr}
 
@@ -51,16 +53,6 @@
     \end{list}
 }
 
-\newcommand{\schoolwithcourses} [4] {
-    \textbf{#1} #2 $\bullet$ #3\\
-    #4 \\
-    \vspace*{5pt}
-}
-
-\newcommand{\school} [4] {
-    \textbf{#1} #2 $\bullet$ #3\\
-    #4 \\
-}
     % END RESUME DEFINITIONS %%%%%%%%%%%%%%%%%%%%%%%
 
     \begin{document}
@@ -71,86 +63,131 @@
 \vspace*{-10pt}
 \begin{center}
     {\Huge \scshape {Paul Chobert}}\\
-    Software Engineer\\
-	Montreal, QC, Canada $\cdot$ paul@chobert.fr $\cdot$ +33 6 01 92 68 87 $\cdot$ github://barodeur $\cdot$ paulchobert.com\\
+    Senior Software Engineer\\
+    Montreal, QC, Canada $\cdot$ paul@chobert.fr $\cdot$ (438) 503 9004 $\cdot$ github://barodeur $\cdot$ paulchobert.com\\
 \end{center}
 
 \vspace*{2mm}
 
-%==== Education ====%
-\header{Education}
-\textbf{ENSIIE}\hfill Strasbourg, France\\
-MSc Computer Science \hfill Grad: 2013\\
-\vspace{2mm}
-\textbf{ENSPS}\hfill Strasbourg, France\\
-BSc Physics \hfill Grad: 2011\\
-\vspace{2mm}
-\textbf{CPGE}\hfill Rouen, France\\
-2 years Mathematics \& Physics training to prepare for French “Grandes Écoles”\hfill Grad: 2010\\
+%==== Profile summary ====%
+\header{Profile summary}
+\vspace{1mm}
+
+\vspace{-1mm}
+\begin{itemize} \itemsep 1pt
+    \item Senir Software Engineer with 8+ years of experience
+    \item Team player with experience as leader
+    \item Built over 15 projects web and mobile platforms
+\end{itemize}
+\vspace{-1mm}
+
 \vspace{2mm}
 
-\vspace*{2mm}
+%==== Education ====%
+\header{Education}
+\vspace{1mm}
+
+\textbf{Master of Science in Engineering}\hfill Strasbourg, France\\
+École Nationale Supérieure d'Informatique pour l'Industrie et l'Entreprise - ENSIIE\hfill Grad: 2013\\
+\vspace{2mm}
+\textbf{BSc Physics - ENSPS}\hfill Strasbourg, France\\
+Télécom Physique Strasbourg\hfill Grad: 2011\\
+\vspace{2mm}
 
 %==== Experience ====%
 \header{Experience}
 \vspace{1mm}
 
-\textbf{Self Employed} \hfill Worldwide\\
-\textit{Software Engineer} \hfill 2011 | Present\\
-\vspace{-1mm}
-\begin{itemize} \itemsep 1pt
-    \item I help my clients to turn their ideas into web or mobile applications, see projects below
-    \item I sometimes assist existing development teams
-    \item My clients are mostly startups, funded or not, but I have also worked for Unilever,
-        the french national rails company (SNCF), and Luxottica
-    \item I use many technologies to fill my clients' needs, from Ruby on Rails,
-        custom node stacks, to Golang, etc.
-\end{itemize}
+\textbf{QuickMail} \hfill Remote\\
+\textit{Senior Software Engineer} \hfill 2017 | Present\\
+\vspace{2mm}
+
+QuickMail is an email marketing software that let you automate your Gmail account to send cold emails and followups.
+We also have a very efficient reply detection system to help you filter your answers and manage your prospect list efficiently.
+
+Since I joind I've been working with Jeremy the founder and our support team
+to add features and maintain the existing codebase.
+I've added feature like Microsoft Office 365 support while refactoring the existing
+Rails MVC / Angular1.4 code into a nice and maintanable Rails / GraphQL / React codebase.
+
+My role at QuickMail is also to take care of our large proxy infrastructure that let us avoid some spam detection.
+I've automated the infrastructure using devops technique like using terraform and monitoring to setup and react quickly
+to potential spam detection issue we might encounter.
+
+
+\vspace{2mm}
+
+\textbf{PAUL CHOBERT EURL} \hfill Worldwide\\
+\textit{Founder \& Software Engineer} \hfill 2011 | Present\\
+\vspace{2mm}
+
+Founder and runs a solo consultancy business since 2011. Worked for many client, larges organisations like Unilever, SNCF (french national rails), and smaller startup.
+
+Designed, developed, implemented, and maintained over twenty web and mobile applications.
+The applications were in all kind of industries including vehicle tracking, Open Data, ticketing (online and onsite).
+
+\vspace{2mm}
 
 \textbf{Enternships | Startup} \hfill London, UK\\
 \textit{Software Engineer - Lead developer} \hfill 2012 | 2013\\
-\vspace{-1mm}
-\begin{itemize} \itemsep 1pt
-    \item I replaced the leaving CTO \& founder
-    \item I maintained a few Rails projects that were functionally very close to each other,
-        I refactored the main one and then the others to share a same Rails Engine
-    \item I helped recruit a juinor developer and then reviewed his code
-\end{itemize}
+\vspace{2mm}
+
+\begin{itshape}
+Enternships is a UK Job Board specialized into internships an placements.
+They developped their own product as well as white labeled versions for business partners.
+\end{itshape}
+
+Replaced the leaving CTO of the company and took all responsabilities over maintenance within a week.
+
+Refactored large legacy codebases to factorize web applications together.
+The products were functionally similar but had completly independant codebase.
+
+Recruited two junior developpers and lead the team to achieve a faster development cycle.
+
+\vspace{2mm}
 
 \textbf{Novelys | Rails Consultancy Business} \hfill Strasbourg, France\\
-\textit{Software Engineer Intern} \hfill 2012 | 2013\\
-\vspace{-1mm}
-\begin{itemize} \itemsep 1pt
-    \item I helped the team develop and maintain clients' projects, mostly in Rails
-    \item After my internship, the CEO proposed that I continue working with them as a freelancer, 
-        this is how I started freelancing
-\end{itemize}
+\textit{Software Engineer Intern} \hfill Summer 2011\\
+\vspace{2mm}
+
+\begin{itshape}
+Based in Strasbourg France, Novelys is an early Ruby on Rails consultancy business.
+\end{itshape}
+
+Designed and implemented new architectures with the engineering team.
+
+% Maintained large ruby codebases, not all in a very good shape.
+
+Learned from Senior developers about the importance of testing and code quality.
+
+% Continued to work as freelancer with the company after the internship.
+
+% \vspace{2mm}
+\pagebreak
 
 \textbf{Extessy | Volkswagen Enginneering Company} \hfill VW Town | Wolfsburg, Germany\\
 \textit{Software Engineer Intern} \hfill Summer 2008\\
-\vspace{-1mm}
-\begin{itemize} \itemsep 1pt
-    \item This was my first professional experience as a software developer, I was 18 years old.
-        Before that I was a hobbyist developer since the age of 12
-    \item I developed a flexible parsing tool to convert engineering requirement
-        documents from MS Word to a more standardized Requirements Interchange Format.
-        This was a very challenging task since the documents were not all using
-        the same exact Word template.
-    \item The project was build with Java, SAX Parser, SWT interface
-    \item I had the chance to study parsing techniques in the Dragon Book
-\end{itemize}
+\vspace{2mm}
 
-\header{Skills}
+\begin{itshape}
+Extessy AG, now part of Accenture was a software engineering firm providing integration tools for software components at Volkswagen.
+\end{itshape}
+
+Designed and implemented a solution to convert poorly structured MS Word documents into Requirements Interchange Format documents.
+
+Learned parser design to implement advanced conversion tools.
+
+Learned UML2 Class Diagrams to document the solution.
+
+\vspace{2mm}
+
+\header{Technical strenght}
 \begin{tabular}{ l l }
-	Programming Languages: & Ruby, Javascript, Golang, Exlir, Scala, Java, Bash   \\
-	Databases:      & MySQL, PostgresQL, Elasticsearch, MongoDB, DynamoDB  \\
-	Web framework:        & Ruby on Rails                                        \\
-    Infrastructure:        & Many AWS Services, Docker, Kubernetes, Terraform, Chef                    \\
+    Programming Languages:  & Ruby, Javascript, Golang, Exlir, Scala, Java, Bash   \\
+    Databases:              & Postgresql, MySQL, Elasticsearch, MongoDB, DynamoDB  \\
+    Web stacks:             & Ruby on Rails, Node.js, React                        \\
+    Infrastructure:         & AWS, Docker, Kubernetes, Terraform, Chef             \\
 \end{tabular}
-
-% \vspace*{2mm}
-
-\pagebreak
 
 \header{Projects}
 {\textbf{React Native NFC iOS} \sl 2017 | SIDE PROJECT | react} \hfill github://barodeur/react-native-nfc-ios\\
@@ -166,9 +203,21 @@ An open source library to use Apple CoreNFC with React Native.\\
 % \vspace*{2mm}
 
 {\textbf{MesVaccins Pro Mobile} \sl 2017 | CLIENT PROJECT | react native} \hfill Currently in Beta\\
-MesVaccins Pro Mobile is the largest React Native project I've worked on.
-It's an Android and iOS App that lets medical professionals keep track of the vaccination records of their patients.
-MesVaccins is probably the most advanced expert system for vaccination rules in the industry.\\
+\begin{itshape}
+MesVaccins is a leading solution in the vaccination industry.
+Their flexible expert system is trained withthousands of vaccinations rules.
+\end{itshape}
+
+\vspace{-\topsep}
+\begin{itemize}
+    \item Designed a mobile application by following iOS and Google design principles
+\end{itemize}
+\vspace{-\topsep}
+
+
+% MesVaccins Pro Mobile is the largest React Native project I've worked on.
+% It's an Android and iOS App that lets medical professionals keep track of the vaccination records of their patients.
+% MesVaccins is probably the most advanced expert system for vaccination rules in the industry.\\
 \vspace*{2mm}
 
 {\textbf{Vote\&Vous App} \sl 2016 | CLIENT PROJECT | node.js, react, serverless, dynamodb} \hfill app.vote-et-vous.fr\\
@@ -218,7 +267,9 @@ I helped a team at Tquila London (now Accenture) to customise a Discourse forum 
 This was challenging as Ember \& Discourse were not stable at the time. \\
 I was also in charge of maintaining a second hosting solution in case we had any problems with Heroku EU zone (also beta).
 My solution was a Chef managed cluster of Linodes.\\
-\vspace*{2mm}
+% \vspace*{2mm}
+
+\pagebreak
 
 {\textbf{Voxe.org} \sl 2011 | CLIENT PROJECT | rails} \hfill www.voxe.org\\
 I worked with Pierre Valade to develop a tool to compare political programs for the French Presidential election of 2012.
