@@ -1,3 +1,6 @@
 {
-  "latex-workshop.latex.autoBuild.run": "onFileChange"
+  "latex-workshop.latex.autoBuild.run": "onFileChange",
+  "yaml.schemas": {
+    "https://json.schemastore.org/github-workflow.json": "file:///Users/paul/projects/resume/.github/workflows/build.yml"
+  }
 }
