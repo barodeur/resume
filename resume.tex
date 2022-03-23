@@ -22,6 +22,10 @@
 
 \setlength{\parskip}{1mm}
 
+\newcommand{\hrefgithub} [1] {
+    \href{https://github.com/#1}{github://#1}
+}
+
 \def\bull{\vrule height 0.8ex width .7ex depth -.1ex }
 
 % DEFINITIONS FOR RESUME %%%%%%%%%%%%%%%%%%%%%%%
@@ -78,7 +82,7 @@
         {\small resume version \href{https://github.com/barodeur/resume/tree/\gitsha}{\StrLeft{\gitsha}{7}}}\\
     \fi
     Montreal, QC, Canada $\cdot$ paul@chobert.fr $\cdot$ (438) 503 9004\\
-    github://barodeur $\cdot$ paulchobert.com
+    \hrefgithub{barodeur} $\cdot$ paulchobert.com
 \end{center}
 
 \vspace*{2mm}
