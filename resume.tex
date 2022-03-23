@@ -5,6 +5,7 @@
     \usepackage{textcomp}
     \usepackage[utf8]{inputenc}
     \usepackage{xparse}
+    \usepackage{xstring}
     \usepackage{hyperref}
     \textheight=10in
     \pagestyle{empty}
@@ -74,7 +75,7 @@
     Software Engineer\\
     \ifx\empty\gitsha
     \else
-        {\small resume version \href{https://github.com/barodeur/resume/tree/\gitsha}{\gitsha}}\\
+        {\small resume version \href{https://github.com/barodeur/resume/tree/\gitsha}{\StrLeft{\gitsha}{7}}}\\
     \fi
     Montreal, QC, Canada $\cdot$ paul@chobert.fr $\cdot$ (438) 503 9004\\
     github://barodeur $\cdot$ paulchobert.com
