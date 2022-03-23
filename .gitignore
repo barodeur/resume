@@ -1,2 +1,4 @@
-resume.*
-!resume.tex
+*.aux
+*.log
+*.out
+*.pdf

@@ -4,9 +4,20 @@
     \usepackage{amssymb}
     \usepackage{textcomp}
     \usepackage[utf8]{inputenc}
+    \usepackage{xparse}
+    \usepackage{hyperref}
     \textheight=10in
     \pagestyle{empty}
     \raggedright
+
+\include{lib/getenv.tex}
+
+\hypersetup{
+    colorlinks=true,
+    urlcolor=black
+}
+
+\getenv[\gitsha]{GITHUB_SHA}
 
 \setlength{\parskip}{1mm}
 
@@ -61,8 +72,12 @@
 \begin{center}
     {\Huge \scshape {Paul Chobert}}\\
     Software Engineer\\
+    \ifx\empty\gitsha
+    \else
+        {\small resume version \href{https://github.com/barodeur/resume/tree/\gitsha}{\gitsha}}\\
+    \fi
     Montreal, QC, Canada $\cdot$ paul@chobert.fr $\cdot$ (438) 503 9004\\
-    github://barodeur $\cdot$ paulchobert.com\\
+    github://barodeur $\cdot$ paulchobert.com
 \end{center}
 
 \vspace*{2mm}
