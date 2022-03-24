@@ -26,6 +26,13 @@
 % The paracol package lets you typeset columns of text in parallel
 \usepackage{paracol}
 
+\usepackage{hyperref}
+\usepackage{textpos}
+\usepackage{xstring}
+
+\include{lib/getenv.tex}
+
+\getenv[\gitsha]{GITHUB_SHA}
 
 % Change the font if you want to, depending on whether
 % you're using pdflatex or xelatex/lualatex
@@ -75,6 +82,20 @@
 % \addbibresource{sample.bib}
 
 \begin{document}
+
+\ifx\empty\gitsha
+\else
+  \begin{textblock*}{\textwidth}(0cm,0cm)
+    \begin{flushright}
+      \vspace{-0.8cm}
+      \small
+      \color{lightgray}
+      resume version \href{https://github.com/barodeur/resume/tree/\gitsha}{\StrLeft{\gitsha}{7}}
+    \end{flushright}
+  \end{textblock*}
+\fi
+
+
 \name{Paul Chobert}
 \tagline{Senior Software Engineer}
 % Cropped to square from https://en.wikipedia.org/wiki/Marissa_Mayer#/media/File:Marissa_Mayer_May_2014_(cropped).jpg, CC-BY 2.0
