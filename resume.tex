@@ -1,308 +1,311 @@
-\documentclass[a4paper]{article}
-    \usepackage{fullpage}
-    \usepackage{amsmath}
-    \usepackage{amssymb}
-    \usepackage{textcomp}
-    \usepackage[utf8]{inputenc}
-    \usepackage{xparse}
-    \usepackage{xstring}
-    \usepackage{hyperref}
-    \textheight=10in
-    \pagestyle{empty}
-    \raggedright
+%%%%%%%%%%%%%%%%%
+% This is an example CV created using altacv.cls (v1.6.4, 13 Nov 2021) written by
+% LianTze Lim (liantze@gmail.com), based on the
+% Cv created by BusinessInsider at http://www.businessinsider.my/a-sample-resume-for-marissa-mayer-2016-7/?r=US&IR=T
+%
+%% It may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either version 1.3
+%% of this license or (at your option) any later version.
+%% The latest version of this license is in
+%%    http://www.latex-project.org/lppl.txt
+%% and version 1.3 or later is part of all distributions of LaTeX
+%% version 2003/12/01 or later.
+%%%%%%%%%%%%%%%%
 
-\include{lib/getenv.tex}
+%% Use the "normalphoto" option if you want a normal photo instead of cropped to a circle
+% \documentclass[10pt,a4paper,normalphoto]{altacv}
 
-\hypersetup{
-    colorlinks=true,
-    urlcolor=black
+\documentclass[10pt,a4paper,ragged2e,withhyper]{altacv}
+
+%% AltaCV uses the fontawesome5 package.
+%% See http://texdoc.net/pkg/fontawesome5 for full list of symbols.
+
+% Change the page layout if you need to
+\geometry{left=1.0cm,right=1.0cm,top=1.0cm,bottom=1.0cm,columnsep=1.2cm}
+
+% The paracol package lets you typeset columns of text in parallel
+\usepackage{paracol}
+
+
+% Change the font if you want to, depending on whether
+% you're using pdflatex or xelatex/lualatex
+\ifxetexorluatex
+  % If using xelatex or lualatex:
+  \setmainfont{Lato}
+\else
+  % If using pdflatex:
+  \usepackage[default]{lato}
+\fi
+
+% Change the colours if you want to
+\definecolor{VividPurple}{HTML}{331D8A}
+\definecolor{SlateGrey}{HTML}{2E2E2E}
+\definecolor{LightGrey}{HTML}{666666}
+% \colorlet{name}{black}
+\colorlet{tagline}{VividPurple}
+\colorlet{heading}{VividPurple}
+\colorlet{headingrule}{SlateGrey}
+\colorlet{subheading}{SlateGrey}
+\colorlet{accent}{VividPurple}
+\colorlet{emphasis}{SlateGrey}
+\colorlet{body}{LightGrey}
+
+% Change some fonts, if necessary
+% \renewcommand{\namefont}{\Huge\rmfamily\bfseries}
+% \renewcommand{\personalinfofont}{\footnotesize}
+% \renewcommand{\cvsectionfont}{\LARGE\rmfamily\bfseries}
+% \renewcommand{\cvsubsectionfont}{\large\bfseries}
+
+% Change the bullets for itemize and rating marker
+% for \cvskill if you want to
+\renewcommand{\itemmarker}{{\small\textbullet}}
+\renewcommand{\ratingmarker}{\faCircle}
+
+%% Use (and optionally edit if necessary) this .tex if you
+%% want to use an author-year reference style like APA(6)
+%% for your publication list
+% \input{pubs-authoryear}
+
+%% Use (and optionally edit if necessary) this .tex if you
+%% want an originally numerical reference style like IEEE
+%% for your publication list
+% \input{pubs-num}
+
+%% sample.bib contains your publications
+% \addbibresource{sample.bib}
+
+\begin{document}
+\name{Paul Chobert}
+\tagline{Senior Software Engineer}
+% Cropped to square from https://en.wikipedia.org/wiki/Marissa_Mayer#/media/File:Marissa_Mayer_May_2014_(cropped).jpg, CC-BY 2.0
+%% You can add multiple photos on the left or right
+% \photoR{2.5cm}{mmayer-wikipedia-cc-by-2_0}
+% \photoL{2cm}{Yacht_High,Suitcase_High}
+\personalinfo{%
+  % Not all of these are required!
+  % You can add your own with \printinfo{symbol}{detail}
+  \email{paul@chobert.fr}
+%   \phone{000-00-0000}
+  \location{Montreal, QC, Canada}
+  \homepage{paulchobert.com}
+  \twitter{@barodeur}
+  \linkedin{paulchobert}
+  \github{github.com/barodeur} % I'm just making this up though.
+%   \orcid{0000-0000-0000-0000} % Obviously making this up too.
+  %% You can add your own arbitrary detail with
+  %% \printinfo{symbol}{detail}[optional hyperlink prefix]
+  % \printinfo{\faPaw}{Hey ho!}
+  %% Or you can declare your own field with
+  %% \NewInfoFiled{fieldname}{symbol}[optional hyperlink prefix] and use it:
+  % \NewInfoField{gitlab}{\faGitlab}[https://gitlab.com/]
+  % \gitlab{your_id}
+	%%
+  %% For services and platforms like Mastodon where there isn't a
+  %% straightforward relation between the user ID/nickname and the hyperlink,
+  %% you can use \printinfo directly e.g.
+  % \printinfo{\faMastodon}{@username@instace}[https://instance.url/@username]
+  %% But if you absolutely want to create new dedicated info fields for
+  %% such platforms, then use \NewInfoField* with a star:
+  % \NewInfoField*{mastodon}{\faMastodon}
+  %% then you can use \mastodon, with TWO arguments where the 2nd argument is
+  %% the full hyperlink.
+  % \mastodon{@username@instance}{https://instance.url/@username}
 }
 
-\getenv[\gitsha]{GITHUB_SHA}
+\makecvheader
 
-\setlength{\parskip}{1mm}
+%% Depending on your tastes, you may want to make fonts of itemize environments slightly smaller
+\AtBeginEnvironment{itemize}{\small}
 
-\newcommand{\hrefgithub} [1] {
-    \href{https://github.com/#1}{github://#1}
-}
+%% Set the left/right column width ratio to 6:4.
+\columnratio{0.6}
 
-\def\bull{\vrule height 0.8ex width .7ex depth -.1ex }
+% Start a 2-column paracol. Both the left and right columns will automatically
+% break across pages if things get too long.
+\begin{paracol}{2}
 
-% DEFINITIONS FOR RESUME %%%%%%%%%%%%%%%%%%%%%%%
+\cvsection{Experience}
 
-\newcommand{\area} [2] {
-    \vspace*{-9pt}
-    \begin{verse}
-        \textbf{#1}   #2
-    \end{verse}
-}
-
-\newcommand{\lineunder} {
-    \vspace*{-8pt} \\
-    \hspace*{-18pt} \hrulefill \\
-}
-
-\newcommand{\header} [1] {
-    {\hspace*{-18pt}\vspace*{6pt} \textsc{#1}}
-    \vspace*{-6pt} \lineunder
-}
-
-\newcommand{\employer} [3] {
-    { \textbf{#1} (#2)\\ \underline{\textbf{\emph{#3}}}\\  }
-}
-
-\newcommand{\contact} [3] {
-    \vspace*{-10pt}
-    \begin{center}
-        {\Huge \scshape {#1}}\\
-        #2 \\ #3
-    \end{center}
-    \vspace*{-8pt}
-}
-
-\newenvironment{achievements}{
-    \begin{list}
-        {$\bullet$}{\topsep 0pt \itemsep -2pt}}{\vspace*{4pt}
-    \end{list}
-}
-
-    % END RESUME DEFINITIONS %%%%%%%%%%%%%%%%%%%%%%%
-
-    \begin{document}
-
-\vspace*{-40pt}
-
-%==== Profile ====%
-\vspace*{-10pt}
-\begin{center}
-    {\Huge \scshape {Paul Chobert}}\\
-    Software Engineer\\
-    \ifx\empty\gitsha
-    \else
-        {\small resume version \href{https://github.com/barodeur/resume/tree/\gitsha}{\StrLeft{\gitsha}{7}}}\\
-    \fi
-    Montreal, QC, Canada $\cdot$ paul@chobert.fr $\cdot$ (438) 503 9004\\
-    \hrefgithub{barodeur} $\cdot$ paulchobert.com
-\end{center}
-
-\vspace*{2mm}
-
-%==== Profile summary ====%
-\header{Profile summary}
-\vspace{1mm}
-
-\vspace{-1mm}
-\begin{itemize} \itemsep 1pt
-    \item 11 years profesional experience as a software engineer
-    \item 4 years of experience as team leader
-    \item Deep understanding of concurrent system design
-    \item Strong DDD experience
-    \item 11 years of experience with Ruby on Rails
-    \item 6 years of experience with React \& 5 years with React Native
-\end{itemize}
-\vspace{-1mm}
-
-%==== Experience ====%
-\header{Experience}
-\vspace{1mm}
-
-\textbf{HOFr Sports} \hfill Remote\\
-\textit{Full Stack Tech Lead} \hfill 2018 | 2021\\
-\vspace{2mm}
-
-HOFr is a daily fantasy sports app available in the US. For some years the application also operated as
-a trivia application, having thousands on players in real time.
-
-I was responsible for leading a small team of five developers to achieve a high-level of quality as well as
-for outlining technical solutions early in the design process to make sure of their feasability.
-I've been writing design documents about app features, epics and stories into our backlog.
-
-I spent also a good amount of time reviewing submitted changes, making sure those correctly implements
-the design, but also fit into out long term goals in term of tech debt management etc...
-
-On a more technical aspect, I was usually responsible for achieving the most critical aspects of the application,
-like the integration of payment processing. And also leveraging my 10 years experience with Rails and PostgreSQL
-to prevent and fix performance related issues up to 20k req/s.
-
-\vspace{2mm}
-\raggedbottom
-
-\textbf{QuickMail} \hfill Remote\\
-\textit{Senior Software Engineer} \hfill 2017 | 2018\\
-\vspace{2mm}
-
-QuickMail is an email marketing software that let companies automate their Google Email accounts to send cold emails and followups.
-We also perform reply detection to help our users filter their answers and manage their prospect list efficiently.
-
-Since I joind I've been working with Jeremy the founder and our support team
-to add features and maintain the existing codebase.
-I've added feature like Microsoft Office 365 support while refactoring the existing
-Rails MVC / Angular1.4 code into a nice and maintanable Rails / GraphQL / React codebase.
-
-My role at QuickMail was also to take care of our large proxy infrastructure that let us avoid some spam detection.
-I've automated the infrastructure using devops technique like using terraform and monitoring to setup and react quickly
-to potential spam detection issue we might encounter.
-
-\vspace{2mm}
-\raggedbottom
-
-\textbf{PAUL CHOBERT EURL} \hfill Worldwide\\
-\textit{Founder \& Software Engineer} \hfill 2011 | Present\\
-\vspace{2mm}
-
-Founder and runs a solo consultancy business since 2011. Worked for many client, larges organisations like Unilever, SNCF (french national rails), and smaller startup.
-
-Designed, developed, implemented, and maintained over twenty web and mobile applications.
-The applications were in all kind of industries including vehicle tracking, Open Data, ticketing (online and onsite).
-
-\vspace{2mm}
-\raggedbottom
-
-\textbf{Enternships | Startup} \hfill London, UK\\
-\textit{Software Engineer - Lead developer} \hfill 2012 | 2013\\
-\vspace{2mm}
-
-\begin{itshape}
-Enternships is a UK Job Board specialized into internships an placements.
-They developped their own product as well as white labeled versions for business partners.
-\end{itshape}
-
-Replaced the leaving CTO of the company and took all responsabilities over maintenance within a week.
-
-Refactored large legacy codebases to factorize web applications together.
-The products were functionally similar but had completly independant codebase.
-
-Recruited two junior developpers and lead the team to achieve a faster development cycle.
-
-\vspace{2mm}
-\raggedbottom
-
-\textbf{Extessy | Volkswagen Enginneering Company} \hfill VW Town | Wolfsburg, Germany\\
-\textit{Software Engineer Intern} \hfill Summer 2008\\
-\vspace{2mm}
-
-\begin{itshape}
-Extessy AG, now part of Accenture was a software engineering firm providing integration tools for software components at Volkswagen.
-\end{itshape}
-
-Designed and implemented a solution to convert poorly structured MS Word documents into Requirements Interchange Format documents.
-
-Learned parser design to implement advanced conversion tools.
-
-Learned UML2 Class Diagrams to document the solution.
-
-\vspace{2mm}
-\raggedbottom
-
-\header{Technical strenght}
-\begin{tabular}{ l l }
-    Programming Languages:  & Ruby, Javascript, Golang, Exlir, Scala, Java, Bash   \\
-    Databases:              & Postgresql, Elasticsearch, MongoDB, DynamoDB  \\
-    Web stacks:             & Ruby on Rails, Node.js, React                        \\
-    Infrastructure:         & AWS, Docker, Kubernetes, Terraform, Chef             \\
-\end{tabular}
-
-\header{Projects}
-{\textbf{Personal Kube Cluster} \sl 2021 | SIDE PROJECT | Kubernetes, Terraform} \hfill \hrefgithub{chobert/kube}\\
-Since 2021 I've been operating a personal \& educational kubernetes cluster to host a couple of services for my family.
-I've deployed an authentication service at id.chobert.fr (keycloack), as well as a couple of other services
-relying on the authentication service. Those include a matrix server (matrix.chobert.fr),
-and gitlab instance (gitlab.chobert.fr)
-\vspace*{2mm}
-
-{\textbf{Chobchat} \sl 2021 | SIDE PROJECT | React Native, Rescript, Electron} \hfill \hrefgithub{barodeur/chobchat}\\
-Chobchat is a simplified version of a matrix client that is targetted for kids.
-Instead of having my 4yo nefew on facebook messenger, or google, I've deployed a matrix.org server on the family kube cluster
-and created a simplified matrix client for his Raspberry Pi 400.
-The application is a universal React app, working on web, iOS, Android, linux, and macOS.
-The CD produces builds on every git tag and the desktop clients automatically updates itself.
-\vspace*{2mm}
-
-{\textbf{React Native NFC iOS} \sl 2017 | SIDE PROJECT | react} \hfill \hrefgithub{barodeur/react-native-nfc-ios}\\
-An open source library to use Apple CoreNFC with React Native.
-\vspace*{2mm}
-
-{\textbf{MesVaccins Pro Mobile} \sl 2017 | CLIENT PROJECT | react native} \hfill Currently in Beta\\
-\begin{itshape}
-MesVaccins is a leading solution in the vaccination industry.
-Their flexible expert system is trained withthousands of vaccinations rules.
-\end{itshape}
-
-\vspace{-\topsep}
+\cvevent{Tech Lead}{HOFr}{Sept 2018 -- Oct 2021}{}
 \begin{itemize}
-    \item Designed a mobile application by following iOS and Google design principles
+\item Lead a team of 5 developers build high quality product with Ruby on Rails, React Native and PostgreSQL
+\item Responsible of system performances, we regularry hit 10k simultaneous connections and over 20k requests / second
+\item Implemented many engineering practices related to API design (GraphQL) and type systems (flowtype)
+\item Reviewed thousands of pull requests, making sure those correctly implements the design, but also fit into out long term goals in term of tech debt management etc...
+\item Helped product owner to write Epic, Stories \& Design documents
+\item Implemented critical app features, like payment, fraud detection, authentication
+\item Build an video streaming infrastructure, receiving RTMP, spliting video streams, transcoding
+\item Helped recruitement process, redacted job listing, interviewing candidates
 \end{itemize}
-\vspace{-\topsep}
 
-\vspace*{2mm}
+\divider
 
-{\textbf{Vote\&Vous App} \sl 2016 | CLIENT PROJECT | node.js, react, serverless, dynamodb} \hfill app.vote-et-vous.fr\\
-I designed and developed a tool to help electors choose the closest candidate to their ideas.
-I used a serverless infrastructure to handle traffic peaks coming from our embeded widget on media partners.
-\vspace*{2mm}
+\cvevent{Senior Software Engineer}{Quickmail}{2017 -- 2018}{}
+\begin{itemize}
+\item Worked directly with founder and support team
+\item Implemented many features like Office 365 integration
+\item I was responsible for performance tuning, system monitoring
+\item Lead a long effort to refactor the RESTish / Angular 1.4 into GraphQL / React
+\end{itemize}
 
-{\textbf{Ice Rink Ticket System} \sl 2016 | CLIENT PROJECT | node.js, postgresql} \hfill Private\\
-That Group LTD is operating a few paid ice rinks in the UK during the christmas season.
-I developed a full online ticketing solution and an on-site boxoffice connected to a receipt printer and cash drawer.
-\vspace*{2mm}
+\divider
 
-{\textbf{Anoloc} \sl 2015 | CLIENT PROJECT | nodejs, angular} \hfill www.anoloc.fr\\
-I helped maintain and add features to their vehicle tracking platform.
-The main challenge was to identify scalability issues and fix them.
-Most of those were solved by distributing tasks to a worker pool.
-\vspace*{2mm}
+\cvevent{Senior Software Engineer}{Freelance}{2011 -- Ongoing}{}
+\begin{itemize}
+  \item Worked mostly in teams of 2 to 10 people
+  \item Assisted clients on their path from idea to app, through lean startup principles and Domain Driven Design
+  \item Helped clients find other contractors to increase team velocity
+  \item Completed many different project with many tech stacks, see projects section
+\end{itemize}
 
-{\textbf{Teltonica support for Anoloc} \sl 2015 | CLIENT PROJECT | IoT, golang} \hfill www.anoloc.fr\\
-Anoloc was about to use a new tracking hardware on vehicles.
-I implemented the server to receive UDP frames for the new Teltonika protocol.
-\vspace*{2mm}
+\cvsection{Projects}
 
-{\textbf{Makesense, Future of Waste, Ecowork} \sl 2014 | CLIENT PROJECT | rails} \hfill\\
-I maintained a Ruby on Rails platform for the Makesense project and helped terminate a project that was functionally similar.
-Later, for a thrid project I factorized the many duplications of those three platforms into a Rails Engine in order
-to accelerate the development of new white labels.
-\vspace*{2mm}
+\cvevent{Chochat}{Personal \& Open Source}{2022 -- Ongoing}{github://barodeur/chobchat}
+\begin{itemize}
+  \item Matrix chat client for kids, made with React Native
+  \item Focussed on the type soundness of the code with Rescript
+  \item Universal App (iOS, Android, Web, Desktop), for all family devices including arm64 build for my nefew rpi400
+  \item CI / CD on Github Action
+  \item Auto-Updated based on Github Releases
+\end{itemize}
 
-{\textbf{Ray Ban Sales traning for Luxottica} \sl 2013 | CLIENT PROJECT | javascript, moodle} \hfill Private\\
-I developed a Moodle class to train Ray Ban sellers with the marketing materials from Luxottica.
-The module was a javascript interface where the learner would watch videos and take tests.
-Test results were sent to Moodle to generate tracking and statistics data.
-\vspace*{2mm}
+\newpage
 
-{\textbf{SNCF Open Data} \sl 2012 | CLIENT PROJECT | rails} \hfill data.sncf.com\\
-I was chosen to develop the Open Data platform of the French national rails company SNCF.
-The app was online from 2012 to 2017 but was later replaced with a SaaS product.
-My work is archived on archive.org
-\vspace*{2mm}
+\cvevent{Family Kubernetes}{Personal \& Open Source}{2021 -- Ongoing}{github://chobert/kube}
+\begin{itemize}
+  \item Maintain a personal kubernetes cluster on 3 Hetzner VPS
+  \item Run an identity service to centralize authentication -- id.chobert.fr
+  \item Run a matrix server -- matrix.chobert.fr
+  \item Run a complete gitlab setup -- gitlab.chobert.fr
+\end{itemize}
 
-{\textbf{Unilever Sustainable Living Lab} \sl 2012 | CLIENT PROJECT | rails, emberjs} \hfill Private\\
-I helped a team at Tquila London (now Accenture) to customise a Discourse forum for Unilever needs.
-This was challenging as Ember \& Discourse were not stable at the time. \\
-I was also in charge of maintaining a second hosting solution in case we had any problems with Heroku EU zone (also beta).
-My solution was a Chef managed cluster of Linodes.
-\vspace*{2mm}
+\divider
+
+\cvevent{MesVaccins Pro Mobile}{Contract @Syadem}{2017}{}
+\begin{itemize}
+  \item React Native App to allow French doctors to manage vaccinations records
+  \item Many features including datamatrix code scanning, vacciation expect system integration
+  \item Follows OS design guidelines (iOS \& Android) closely
+\end{itemize}
+
+\divider
+
+\cvevent{Vote\&Vous}{Contract @Vote\&Vous}{2016}{github://voteetvous/app}
+\begin{itemize}
+  \item Designed and developed a Tinder like interface to help people pick their candidate for the french presidential election
+  \item Since the app would be embedded on many news article of major french outlets,
+    I couldn't predict the traffic over a small period of life time (~4 weeks).
+    I decided to go with AWS Lambda and DynamoDB.
+\end{itemize}
+
+\divider
+
+\cvevent{Ice Rink Ticket System}{That Group LTD}{2016}{London, UK}
+\begin{itemize}
+  \item developed a web app to buy Ice Rink tickets online as well as tablets acting as cash registers
+  \item Locking mechanism, allowing people to complete payment within 10 minutes after selecting tickets
+  \item Used Stripe payment \& programmed receipt printers
+  \item Made with node.js \& postgreSQL
+\end{itemize}
+
+\divider
+
+\cvevent{\& more...}{}{}{}{}
+\begin{itemize}
+  \item React Native NFC iOS -- 2017 -- react native, ios -- developed a React Native package to read NFC tags
+  \item Anoloc -- 2014 -- golang, mysql -- implemented many UDP based protocols to track vehicle fleets
+  \item Future of Waste, Ecowork, Makesense -- 2014 -- rails, postgresql -- factorized three rails CMS platforms into a single rails engine
+  \item Pathmotion Chat -- 2014 -- angular.js, nodejs -- developed a real time chat platform, to connect employers with candidates
+  \item Ray Ban Sales training for Luxotica -- 2013 -- backbone.js -- developed an online course, compatible with Moodle, to teach how to sell Ray Ban glasses
+  \item SNCF Open Data -- 2012 -- rails, posgresql -- developed the first iteration of the Open Data initiative at the French National Rail company
+  \item Voxe.org -- 2012 \& 2017 -- rails, backbone.js, postgresql  -- developed a tool to compare presidential election candidates, embdded widget absorbing lemonde.fr traffic
+  \item Unilever Sustainable Living Lab -- 2012 -- discourse, rails -- developed a custom Discourse integration for Unilever
+  \item Wisemetrics -- 2011 -- rails, mongodb -- developed a facebook analytics plaftorm for large brands including Nutella
+  \item Enternships -- 2011 -- rails, postgresql -- replacing the CTO for a UK Job board
+\end{itemize}
 
 
-{\textbf{Voxe.org} \sl 2011 | CLIENT PROJECT | rails} \hfill www.voxe.org\\
-I worked with Pierre Valade to develop a tool to compare political programs for the French Presidential election of 2012.
-The app was a massive success and brought me visibility to later continue my freelance career.
-\vspace*{2mm}
+% % Adapted from @Jake's answer from http://tex.stackexchange.com/a/82729/226
+% % \wheelchart{outer radius}{inner radius}{
+% % comma-separated list of value/text width/color/detail}
+% % Some ad-hoc tweaking to adjust the labels so that they don't overlap
+% \hspace*{-1em}  %% quick hack to move the wheelchart a bit left
+% \wheelchart{1.5cm}{0.5cm}{%
+%   10/13em/accent!30/Sleeping \& dreaming about work,
+%   25/9em/accent!60/Public resolving issues with Yahoo!\ investors,
+%   5/11em/accent!10/\footnotesize\\[1ex]New York \& San Francisco Ballet Jawbone board member,
+%   20/11em/accent!40/Spending time with family,
+%   5/8em/accent!20/\footnotesize Business development for Yahoo!\ after the Verizon acquisition,
+%   30/9em/accent/Showing Yahoo!\ \mbox{employees} that their work has meaning,
+%   5/8em/accent!20/Baking cupcakes
+% }
 
-{\textbf{Wisemetrics} \sl 2011 | CLIENT PROJECT | rails, mongodb} \hfill www.wiselytics.com\\
-I developed an advanced Facebook analytics platform to help content managers reach their audiences.
-This was when Facebook didn't have a GUI to see this data, but most of them were available through the API (FQL).
-The product was later sold and became Wiselytics.
-\vspace*{2mm}
+%% Switch to the right column. This will now automatically move to the second
+%% page if the content is too long.
+\switchcolumn
 
-%==== Education ====%
-\header{Education}
-\vspace{1mm}
+\cvsection{Most Proud of}
 
-\textbf{Master of Science in Engineering}\hfill Strasbourg, France\\
-École Nationale Supérieure d'Informatique pour l'Industrie et l'Entreprise - ENSIIE\hfill Grad: 2013\\
-\vspace{2mm}
-\textbf{BSc Physics - ENSPS}\hfill Strasbourg, France\\
-Télécom Physique Strasbourg\hfill Grad: 2011\\
-\vspace{2mm}
+\cvachievement{\faChild}{Mentoring}{Just like I've been helped when I was a teenager, I've helped many other engineer and developers grow their career}
+
+\divider
+
+\cvachievement{\faHeart}{Still passionate}{I filtered roles and contracts so after 10 years of working in the software industry, I still love coding and all the human relation that comes with it}
+
+\divider
+
+\cvachievement{\faMedkit}{Performance Expertise}{Even after I left previous roles and contracts, I would be called back to continue assisting on performance}
+
+\divider
+
+\cvachievement{\faList}{Methodical}{Having to wear many hats at the same time made me a good list maintainer}
+
+\cvsection{Strengths}
+
+\cvtag{Product Management}
+\cvtag{DDD Expertise}\\
+\cvtag{Distributed Systems}
+\cvtag{DevOPS}
+
+\divider\smallskip
+
+\cvtag{Ruby \& Rails}
+\cvtag{React $\cdot$ (1 + Native)}\\
+\cvtag{Rust}
+\cvtag{PostgreSQL}
+\cvtag{AWS}
+
+\cvsection{Current Tech Stands}
+\begin{itemize}
+  \item Ruby on Rails is still relevant after 10 years
+  \item PostgreSQL is amazing \& Kafka is kafkaesque
+  \item PaaS are expensive but worth it
+  \item Monorepo rocks
+  \item Even GraphQL requires strong conventions to achieve great ergonomics
+  \item git merge is undervalued
+  \item Rust isn't hard, it just show you how bad you were at C
+\end{itemize}
+
+\cvsection{Education}
+
+\cvevent{Engineering degree / MSc. Computer Science}{ENSIIE}{2012 -- 2015}{Strasbourg, France}
+Wrote a lot of C there...
+
+\divider
+
+\cvevent{AI Class by Andrew Ng \small{100\% grade}}{Coursera}{2013}{Online}
+
+\newpage
+
+\cvsection{Referees}
+
+% \cvref{name}{email}{mailing address}
+\cvref{Kamyar Vahabzadeh, CEO}{HOFr}{kamyar@hofr.io}
+
+\divider
+
+\cvref{Jeremy Chatel, CEO}{Quickmail}{jeremy@quickmail.io}
+
+\end{paracol}
 
 \end{document}
