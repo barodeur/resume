@@ -27,7 +27,7 @@
 \usepackage{paracol}
 
 \usepackage{hyperref}
-\usepackage{textpos}
+\usepackage{eso-pic}
 \usepackage{xstring}
 
 \include{lib/getenv.tex}
@@ -85,14 +85,16 @@
 
 \ifx\empty\gitsha
 \else
-  \begin{textblock*}{\textwidth}(0cm,0cm)
-    \begin{flushright}
-      \vspace{-0.8cm}
-      \small
-      \color{lightgray}
-      resume version \href{https://github.com/barodeur/resume/tree/\gitsha}{\StrLeft{\gitsha}{7}}
-    \end{flushright}
-  \end{textblock*}
+  \AddToShipoutPictureBG*{
+    \AtPageUpperLeft{
+      \hspace{\paperwidth}
+      \raisebox{-\baselineskip}{
+        \makebox[0pt][r]{
+          \color{lightgray}
+          resume version \href{https://github.com/barodeur/resume/tree/\gitsha}{\StrLeft{\gitsha}{7}}
+          \hspace{0.2cm}
+        }
+      }}}
 \fi
 
 
