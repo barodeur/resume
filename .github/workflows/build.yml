@@ -1,5 +1,5 @@
 name: Build LaTeX document
-on: 
+on:
   - push
 jobs:
   build_latex:
@@ -11,9 +11,14 @@ jobs:
         uses: xu-cheng/latex-action@v2
         with:
           root_file: resume.tex
+      - name: Set outputs
+        id: vars
+        run: echo "::set-output name=sha_short::$(git rev-parse --short HEAD)"
+      - name: Rename
+        run: mv resume.pdf resume_paul_chobert_${{ steps.vars.outputs.sha_short }}.pdf
       - name: Upload PDF
         uses: actions/upload-artifact@v2
         with:
-          name: resume.pdf
-          path: ./resume.pdf
+          name: resume_paul_chobert_${{ steps.vars.outputs.sha_short }}.pdf
+          path: ./resume_paul_chobert_${{ steps.vars.outputs.sha_short }}.pdf
           if-no-files-found: error
